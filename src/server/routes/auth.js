@@ -11,12 +11,12 @@ router.get('/auth/register', async ctx => {
 });
 
 router.post('/auth/register', async ctx => {
-	const userRes = await queries.addUser(ctx.request.body);
+	await queries.addUser(ctx.request.body);
 	return passport.authenticate('local', (err, user, info, status) => {
-		console.log(userRes, user);
 		if (user) {
 			ctx.login(user);
-			ctx.status = 201;
+			ctx.status = 200;
+			ctx.redirect('/auth/status');
 		} else {
 			ctx.status = 400;
 			ctx.body = { status: 'error' };
