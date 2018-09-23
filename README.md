@@ -1,4 +1,6 @@
-стортовое дла погружения в Koa
+starting koa example
 
+using koa, koa-bodyparser, koa-passport, koa-redis, koa-router, koa-session
 knex, postgres, redis
-koa
+
+for tests mocha, chai
