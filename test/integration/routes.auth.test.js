@@ -47,12 +47,23 @@ describe('routes : auth', () => {
 			chai.request(server)
 				.post('/auth/register')
 				.send({
-					username: 'michael',
+					firstname: 'michael',
+					lastname: 'michael',
 					password: 'herman',
+					email: 'pogman25@gmail.ru',
+					phone: '+7909405884',
 				})
 				.end((err, res) => {
 					should.not.exist(err);
-					res.redirects[0].should.contain('/auth/status');
+					res.status.should.eql(201);
+					// res.body.data.status.should.include.keys(
+					// 	'id',
+					// 	'firstname',
+					// 	'lastname',
+					// 	'email',
+					// 	'phone'
+					// );
+					// res.redirects[0].should.contain('/auth/status');
 					done();
 				});
 		});
@@ -81,10 +92,11 @@ describe('routes : auth', () => {
 			chai.request(server)
 				.post('/auth/login')
 				.send({
-					username: 'jeremy',
+					email: 'sapogi21@yandex.ru',
 					password: 'johnson',
 				})
 				.end((err, res) => {
+					res.status.should.eql(200);
 					res.redirects[0].should.contain('/auth/status');
 					done();
 				});

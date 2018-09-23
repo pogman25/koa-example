@@ -22,7 +22,8 @@
   },
   "scripts": {
     "test": "mocha ./test/**/*.test.js",
-    "start": "node ./src/server/index.js"
+    "start": "node ./src/server/index.js",
+    "migrate:dev": "NODE_ENV=development knex migrate:latest --env development"
   },
   "author": "",
   "license": "ISC"

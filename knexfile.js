@@ -15,7 +15,7 @@ module.exports = {
   },
   development: {
     client: 'pg',
-    connection: 'postgres://localhost:5432/koa-app',
+    connection: 'postgres://localhost:5432/fish-app',
     migrations: {
       directory: path.join(BASE_PATH, 'migrations')
     },
